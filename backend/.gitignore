@@ -1,0 +1,39 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Byte-code files
+*.pyc
+__pycache__/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Environment variables
+.env
+.env.*
+instance/
+
+# Logs
+*.log
+logs/
+
+# Database files (if using local database files)
+*.sqlite3
+*.db
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Testing related files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS specific files
+.DS_Store
+Thumbs.db
