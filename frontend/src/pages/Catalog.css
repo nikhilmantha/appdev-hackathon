@@ -1,0 +1,180 @@
+html, body {
+margin: 0;
+padding: 0;
+width: 100%;
+background-color: white;
+overflow-x: hidden;
+}
+
+/* Page wrapper */
+.catalog-page {
+display: block;
+position: relative;
+padding-top: 75px;
+}
+
+
+
+/* Top Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: #18A0FB;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;   /* push content to right */
+  align-items: center;
+  padding: 0 2rem;             /* space from edges */
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;           /* spacing between buttons */
+  align-items: center;
+  min-width: 120px;
+  text-align: center;
+
+}
+
+.profile-button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  background-color: white;
+  color:black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+}
+
+.profile-button:hover {
+  background-color: #e6e6e6; /* light gray */
+}
+
+.tasks-button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.tasks-button:hover {
+  background-color: #333;       /* slightly lighter on hover */
+}
+.logo-photo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.catalog-box {
+  position: absolute;               /* relative to viewport */
+  top: 750px;                      /* slightly above login block */
+  left: 50%;
+  transform: translateX(-50%);   /* center horizontally */
+
+  width: 25%;
+  max-width: 300px;
+  min-width: 160px;
+  height: 60px;
+
+  background-color: #18A0FB;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: 'Title Hero', sans-serif;
+  text-align: center;
+  color: white;
+  z-index: 999;                /* above main block */
+}
+
+.cards-section {
+  position:relative;
+  margin-top:700px;  
+  padding-top: 2rem;  /* Reduced padding since catalog has its own margin */
+  padding-bottom: 6rem;  /* Increased from 2rem */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: white;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards-title {
+  margin-top: 4rem;  
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+    max-width: 900px; /* Reduced from 1400px to make cards narrower */
+  margin: 0 auto; /* Centers the grid */
+
+}
+
+.card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9 {
+  border: 2px solid #D3D3D3;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card1-image, .card2-image, .card3-image, .card4-image, .card5-image, .card6-image, .card7-image, .card8-image, .card9-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.card-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title1, .title2, .title3, .title4, .title5, .title6, .title7, .title8, .title9 {
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+}
+
+.card1-text, .card2-text, .card3-text, .card4-text, .card5-text, .card6-text, .card7-text, .card8-text, .card9-text {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}

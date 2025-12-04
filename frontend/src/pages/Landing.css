@@ -239,12 +239,8 @@ border-radius: 8px;
   font-size: 14px;
   font-weight: bold;
   background-color: white;
-  cursor: pointer;
 }
 
-.info-icon:hover {
-  background-color: #f0f0f0;
-}
 
 .footer {
   width: 100vw;
