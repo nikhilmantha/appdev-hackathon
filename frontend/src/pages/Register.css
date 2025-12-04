@@ -1,0 +1,176 @@
+
+
+/* Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  overflow-x: hidden; /* prevents horizontal scroll */
+}
+
+/* Page wrapper */
+.register-page {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: white;
+  position: relative;
+}
+
+/* Top Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: #18A0FB;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;   /* push content to right */
+  align-items: center;
+  padding: 0 2rem;             /* space from edges */
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+
+.signin-button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  background-color: white;
+  color:black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+}
+
+.signin-button:hover {
+  background-color: #e6e6e6; /* light gray */
+}
+
+
+.logo-photo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.back-arrow-button {
+  position: fixed;         /* so it stays in place relative to viewport */
+  top: 100px;               /* below the top bar (75px) + 15px spacing) */
+  left: 20px;              /* some padding from left edge */
+  height: 60px;            /* adjust size as needed */
+  width: 60px;
+  cursor: pointer;
+  z-index: 1001;           /* above page content */
+}
+
+
+/* Login-in block */
+.registration-block {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 80%;
+  max-width: 550px;
+  min-width: 300px;
+  aspect-ratio: 11 / 7; /* proportional height */
+  max-height: 275px;
+
+  background-color: #18A0FB;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  border-radius: 12px;
+
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* vertical centering of all content */
+  gap: 1.5rem;                 /* space between input groups and button */
+  color: white;
+
+
+}
+
+/* Input Groups */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* left-align labels */
+  width: 100%;
+  gap: 0.6rem;             /* spacing between label and input */
+}
+
+/* Labels */
+.input-group label {
+  font-weight: bold;
+  color: white;
+}
+
+/* Input Boxes */
+.input-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Placeholder color */
+.input-group input::placeholder {
+  color: #999;
+}
+
+/* Sign In Button */
+.register-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #0f4ea2;  /* dark blue */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #0c3a7a;
+}
+
+
+
+.register-box {
+  position: fixed;               /* relative to viewport */
+  top: 18%;                      /* slightly above login block */
+  left: 50%;
+  transform: translateX(-50%);   /* center horizontally */
+
+  width: 25%;
+  max-width: 160px;
+  min-width: 80px;
+  height: 60px;
+
+  background-color: #18A0FB;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: 'Title Hero', sans-serif;
+  text-align: center;
+  color: white;
+  z-index: 1001;                /* above main block */
+
+}
+
