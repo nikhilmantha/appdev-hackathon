@@ -6,6 +6,10 @@ import "./App.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Landing from "./pages/Landing"
+import Catalog from "./pages/Catalog"
+import Tasks from "./pages/Tasks"
+import Profile from "./pages/Profile"
+
 
 function Home() {
   const [count, setCount] = useState(0);
@@ -44,6 +48,9 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/landing" element={<Landing />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
