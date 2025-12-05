@@ -25,25 +25,27 @@ padding-top: 75px;
   background-color: #18A0FB;
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
   display: flex;
-  justify-content: space-between;   /* push content to right */
+  justify-content: space-between;   
   align-items: center;
-  padding: 0 2rem;             /* space from edges */
+  padding: 0 2rem;             
   z-index: 1000;
   box-sizing: border-box;
 }
 
+/* Profile and tasks button on top bar */
 .button-group {
   display: flex;
-  gap: 1rem;           /* spacing between buttons */
+  gap: 1rem;           
   align-items: center;
   min-width: 120px;
   text-align: center;
 
 }
 
+/* Profile button on top bar */
 .profile-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;      
   background-color: white;
   color:black;
   font-weight: bold;
@@ -53,12 +55,13 @@ padding-top: 75px;
 }
 
 .profile-button:hover {
-  background-color: #e6e6e6; /* light gray */
+  background-color: #e6e6e6; 
 }
 
+/* Tasks button on top bar */
 .tasks-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;      
   background-color: black;
   color: white;
   font-weight: bold;
@@ -67,8 +70,10 @@ padding-top: 75px;
 }
 
 .tasks-button:hover {
-  background-color: #333;       /* slightly lighter on hover */
+  background-color: #333;       
 }
+
+/* App dev logo on top bar */
 .logo-photo {
     height: 50px;
     width: 50px;
@@ -76,11 +81,12 @@ padding-top: 75px;
     border-radius: 8px;
 }
 
+/* Catalog header below top bar */
 .catalog-box {
-  position: absolute;               /* relative to viewport */
-  top: 750px;                      /* slightly above login block */
+  position: absolute;               
+  top: 750px;                      
   left: 50%;
-  transform: translateX(-50%);   /* center horizontally */
+  transform: translateX(-50%);   
 
   width: 25%;
   max-width: 300px;
@@ -99,14 +105,15 @@ padding-top: 75px;
   font-family: 'Title Hero', sans-serif;
   text-align: center;
   color: white;
-  z-index: 999;                /* above main block */
+  z-index: 999;                
 }
 
+/* Cards section */
 .cards-section {
   position:relative;
   margin-top:700px;  
-  padding-top: 2rem;  /* Reduced padding since catalog has its own margin */
-  padding-bottom: 6rem;  /* Increased from 2rem */
+  padding-top: 2rem;  
+  padding-bottom: 6rem;  
   padding-left: 2rem;
   padding-right: 2rem;
   background-color: white;
@@ -128,12 +135,12 @@ padding-top: 75px;
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 2rem;
   width: 100%;
   padding: 0 2rem;
-    max-width: 900px; /* Reduced from 1400px to make cards narrower */
-  margin: 0 auto; /* Centers the grid */
+    max-width: 900px; 
+  margin: 0 auto; 
 
 }
 

@@ -26,25 +26,27 @@ padding-top: 75px;
   background-color: #18A0FB;
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
   display: flex;
-  justify-content: space-between;   /* push content to right */
+  justify-content: space-between;   
   align-items: center;
-  padding: 0 2rem;             /* space from edges */
+  padding: 0 2rem;             
   z-index: 1000;
   box-sizing: border-box;
 }
 
+/* About, register, and sign in button on top bar */
 .button-group {
   display: flex;
-  gap: 1rem;           /* spacing between buttons */
+  gap: 1rem;           
   align-items: center;
   min-width: 120px;
   text-align: center;
 
 }
 
+/* Sign in button on top bar */
 .signin-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;     
   background-color: white;
   color:black;
   font-weight: bold;
@@ -54,12 +56,13 @@ padding-top: 75px;
 }
 
 .signin-button:hover {
-  background-color: #e6e6e6; /* light gray */
+  background-color: #e6e6e6; 
 }
 
+/* Register button on top bar */
 .register-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;     
   background-color: black;
   color: white;
   font-weight: bold;
@@ -68,12 +71,13 @@ padding-top: 75px;
 }
 
 .register-button:hover {
-  background-color: #333;       /* slightly lighter on hover */
+  background-color: #333;       
 }
 
+/* About button on top bar */
 .about-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;      
   background-color: #90D5FF;
   color: white;
   font-weight: bold;
@@ -82,9 +86,10 @@ padding-top: 75px;
 }
 
 .about-button:hover {
-  background-color: #78C9FF;       /* slightly lighter on hover */
+  background-color: #78C9FF;       
 }
 
+/* App dev logo on top bar */
 .logo-photo {
     height: 50px;
     width: 50px;
@@ -92,23 +97,25 @@ padding-top: 75px;
     border-radius: 8px;
 }
 
+/* Title section */
 .hero-section {
 padding-top: calc(75px + 30rem);
 padding-bottom: 2rem;  
-background-color: white; /* So you can see it */
+background-color: white; 
 }
 
 .hero-content {
 max-width: 600px;
-margin: 0 auto; /* Centers horizontally */
+margin: 0 auto; 
 text-align: center;
 padding: 2rem;
 }
 
 .hero-subtitle {
-margin-top: -1rem; /* Brings it closer to the title */
+margin-top: -1rem; 
 }
 
+/* Register and sign in buttons below title */
 .hero-buttons {
 display: flex;
 justify-content: center;
@@ -116,6 +123,7 @@ gap: 1rem;
 margin-top: 1.5rem;
 }
 
+/* Sign in button below title */
 .hero-signin {
     color: black;
     background-color: #D3D3D3;
@@ -125,6 +133,7 @@ margin-top: 1.5rem;
 
 }
 
+/* Register button below title */
 .hero-register {
     color: white;
     background-color: black;
@@ -133,12 +142,14 @@ margin-top: 1.5rem;
 }
 
 .hero-signin:hover {
-background-color: #BEBEBE; /* Slightly darker gray */
-}
-.hero-register:hover {
-background-color: #333; /* Slightly darker gray */
+background-color: #BEBEBE; 
 }
 
+.hero-register:hover {
+background-color: #333; 
+}
+
+/* Image section below title section */
 .image-section {
 padding: 2rem 0;
 background-color: #18A0FB;
@@ -150,8 +161,8 @@ left: 50%;
 right: 50%;
 margin-left: -50vw;
 margin-right: -50vw;
-display: flex; /* Add this */
-align-items: center; /* Add this - centers vertically */
+display: flex; 
+align-items: center; 
 }
 
 .images {
@@ -165,12 +176,13 @@ border-radius: 8px;
 }
 
 .app-image {
-height: 200px; /* Whatever size you want */
+height: 200px;
 width: 200px;
 object-fit: cover;
 border-radius: 8px;
 }
 
+/* Description of app section below image section */
 .description-section{
   padding: 2rem;
   background-color: white;
@@ -222,7 +234,7 @@ border-radius: 8px;
   max-width: 350px;
   min-height: 200px;
   box-sizing: border-box;
-  position: relative; /* Important for positioning the icon */
+  position: relative; 
 }
 
 .info-icon {
@@ -241,7 +253,7 @@ border-radius: 8px;
   background-color: white;
 }
 
-
+/* Footer */
 .footer {
   width: 100vw;
   position: relative;

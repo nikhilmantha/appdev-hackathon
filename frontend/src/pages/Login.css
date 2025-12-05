@@ -7,7 +7,7 @@ html, body {
   height: 100%;
   width: 100%;
   background-color: white;
-  overflow-x: hidden; /* prevents horizontal scroll */
+  overflow-x: hidden; 
 }
 
 /* Page wrapper */
@@ -28,17 +28,17 @@ html, body {
   background-color: #18A0FB;
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
   display: flex;
-  justify-content: space-between;   /* push content to right */
+  justify-content: space-between;   
   align-items: center;
-  padding: 0 2rem;             /* space from edges */
+  padding: 0 2rem;             
   z-index: 1000;
   box-sizing: border-box;
 }
 
-
+/* Register button on top bar */
 .register-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;      
   background-color: black;
   color: white;
   font-weight: bold;
@@ -46,6 +46,12 @@ html, body {
   cursor: pointer;
 }
 
+.register-button:hover {
+  background-color: #333;       
+}
+
+
+/* App dev logo on top bar */
 .logo-photo {
     height: 50px;
     width: 50px;
@@ -53,18 +59,19 @@ html, body {
     border-radius: 8px;
 }
 
+/* Back arrow */
 .back-arrow-button {
-  position: fixed;         /* so it stays in place relative to viewport */
-  top: 100px;               /* below the top bar (75px) + 15px spacing) */
-  left: 20px;              /* some padding from left edge */
-  height: 60px;            /* adjust size as needed */
+  position: fixed;         
+  top: 100px;               
+  left: 20px;              
+  height: 60px;            
   width: 60px;
   cursor: pointer;
-  z-index: 1001;           /* above page content */
+  z-index: 1001;           
 }
 
 
-/* Login-in block */
+/* Login-in block where user's put in their information */
 .login-in-block {
   position: fixed;
   top: 60%;
@@ -74,7 +81,7 @@ html, body {
   width: 80%;
   max-width: 550px;
   min-width: 300px;
-  aspect-ratio: 11 / 7; /* proportional height */
+  aspect-ratio: 11 / 7; 
   max-height: 275px;
 
   background-color: #18A0FB;
@@ -84,28 +91,28 @@ html, body {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;      /* vertical centering of all content */
-  gap: 1.5rem;                 /* space between input groups and button */
+  justify-content: center;      
+  gap: 1.5rem;                 
   color: white;
 
 }
 
-/* Input Groups */
+/* Input Groups such as username and password */
 .input-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* left-align labels */
+  align-items: flex-start; 
   width: 100%;
-  gap: 0.6rem;             /* spacing between label and input */
+  gap: 0.6rem;             
 }
 
-/* Labels */
+/* Password and username labels */
 .input-group label {
   font-weight: bold;
   color: white;
 }
 
-/* Input Boxes */
+/* Password and username input boxes */
 .input-group input {
   width: 100%;
   padding: 0.8rem;
@@ -138,16 +145,12 @@ html, body {
   background-color: #0c3a7a;
 }
 
-
-.register-button:hover {
-  background-color: #333;       /* slightly lighter on hover */
-}
-
+/* Sign in block header above main block */
 .sign-in-block {
-  position: fixed;               /* relative to viewport */
-  top: 20%;                      /* slightly above login block */
+  position: fixed;               
+  top: 20%;                      
   left: 50%;
-  transform: translateX(-50%);   /* center horizontally */
+  transform: translateX(-50%);  
 
   width: 25%;
   max-width: 160px;
@@ -166,7 +169,7 @@ html, body {
   font-family: 'Title Hero', sans-serif;
   text-align: center;
   color: white;
-  z-index: 1001;                /* above main block */
+  z-index: 1001;                
 
 }
 

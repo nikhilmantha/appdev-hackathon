@@ -7,7 +7,7 @@ html, body {
   height: 100%;
   width: 100%;
   background-color: white;
-  overflow-x: hidden; /* prevents horizontal scroll */
+  overflow-x: hidden; 
 }
 
 /* Page wrapper */
@@ -28,17 +28,18 @@ html, body {
   background-color: #18A0FB;
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
   display: flex;
-  justify-content: space-between;   /* push content to right */
+  justify-content: space-between;   
   align-items: center;
-  padding: 0 2rem;             /* space from edges */
+  padding: 0 2rem;             
   z-index: 1000;
   box-sizing: border-box;
 }
 
 
+/* Top Bar Sign In Button */
 .signin-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;      
   background-color: white;
   color:black;
   font-weight: bold;
@@ -48,10 +49,10 @@ html, body {
 }
 
 .signin-button:hover {
-  background-color: #e6e6e6; /* light gray */
+  background-color: #e6e6e6; 
 }
 
-
+/* Top Bar App Dev Logo */
 .logo-photo {
     height: 50px;
     width: 50px;
@@ -59,14 +60,15 @@ html, body {
     border-radius: 8px;
 }
 
+/* Back Arrow */
 .back-arrow-button {
-  position: fixed;         /* so it stays in place relative to viewport */
-  top: 100px;               /* below the top bar (75px) + 15px spacing) */
-  left: 20px;              /* some padding from left edge */
-  height: 60px;            /* adjust size as needed */
+  position: fixed;         
+  top: 100px;               
+  left: 20px;              
+  height: 60px;            
   width: 60px;
   cursor: pointer;
-  z-index: 1001;           /* above page content */
+  z-index: 1001;           
 }
 
 
@@ -80,7 +82,7 @@ html, body {
   width: 80%;
   max-width: 550px;
   min-width: 300px;
-  aspect-ratio: 11 / 7; /* proportional height */
+  aspect-ratio: 11 / 7; 
   max-height: 275px;
 
   background-color: #18A0FB;
@@ -90,29 +92,29 @@ html, body {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;      /* vertical centering of all content */
-  gap: 1.5rem;                 /* space between input groups and button */
+  justify-content: center;      
+  gap: 1.5rem;                 
   color: white;
 
 
 }
 
-/* Input Groups */
+/* Input Groups (email, username, password) */
 .input-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* left-align labels */
+  align-items: flex-start; 
   width: 100%;
-  gap: 0.6rem;             /* spacing between label and input */
+  gap: 0.6rem;             
 }
 
-/* Labels */
+/* Email, username, and password label */
 .input-group label {
   font-weight: bold;
   color: white;
 }
 
-/* Input Boxes */
+/* Email, username, and password input boxes */
 .input-group input {
   width: 100%;
   padding: 0.8rem;
@@ -122,18 +124,18 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Placeholder color */
+/* Placeholder color for input boxes */
 .input-group input::placeholder {
   color: #999;
 }
 
-/* Sign In Button */
+/* Sign in Button on sign-in block (lower on the page) */
 .register-btn {
   width: 100%;
   padding: 0.8rem;
   border-radius: 8px;
   border: none;
-  background-color: #0f4ea2;  /* dark blue */
+  background-color: #0f4ea2; 
   color: white;
   font-weight: bold;
   font-size: 1rem;
@@ -146,12 +148,12 @@ html, body {
 }
 
 
-
+/* Register box at top middle of the page, labeling where registration is */
 .register-box {
-  position: fixed;               /* relative to viewport */
-  top: 18%;                      /* slightly above login block */
+  position: fixed;               
+  top: 18%;                      
   left: 50%;
-  transform: translateX(-50%);   /* center horizontally */
+  transform: translateX(-50%);   
 
   width: 25%;
   max-width: 160px;
@@ -170,7 +172,7 @@ html, body {
   font-family: 'Title Hero', sans-serif;
   text-align: center;
   color: white;
-  z-index: 1001;                /* above main block */
+  z-index: 1001;                
 
 }
 

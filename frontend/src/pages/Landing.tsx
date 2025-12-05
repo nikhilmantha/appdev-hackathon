@@ -5,6 +5,7 @@ export default function Landing() {
     const navigate = useNavigate();
   return (
     <div className="landing-page">
+      {/* Top Bar */}
       <div className="top-bar">
               <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="logo-photo" />
              <div className = "button-group">
@@ -14,6 +15,7 @@ export default function Landing() {
         </div> 
       </div>    
 
+{/* Title Block */}
     <div className="hero-section">
     <div className="hero-content">
         <h1 className="hero-title">Title</h1>
@@ -26,6 +28,7 @@ export default function Landing() {
     </div>
     </div>
 
+{/* Image section */}
     <div className="image-section">
         <div className="images">
             <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="app-image" />
@@ -33,6 +36,7 @@ export default function Landing() {
     </div>
     </div>
 
+{/* Description of app section */}
 <div className="description-section">
   <h1 className="description-title">App Dev Hackathon</h1>
   <div className="descriptions">
@@ -58,6 +62,7 @@ export default function Landing() {
   </div>
 </div>
 
+{/* Footer */}
 <footer className="footer">
   <p className="footer-text">© 2025 App Dev Hackathon. All rights reserved.</p>
 </footer>

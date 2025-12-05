@@ -5,6 +5,7 @@ export default function Tasks() {
   const navigate = useNavigate();
   return (
     <div className="tasks-page">
+      {/* Top Bar */}
       <div className="top-bar">
               <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="logo-photo" />
              <div className = "button-group">
@@ -13,8 +14,10 @@ export default function Tasks() {
         </div> 
       </div>    
 
+    {/* Label at the top that says Tasks */}
       <div className="tasks-box">Tasks</div>
 
+{/* Tasks section where title, goal header, and goals are */}
 <div className="tasks-section">
   <h1 className="tasks-title">Welcome User, Here are your goals for the day</h1>
   <div className="goals-container">

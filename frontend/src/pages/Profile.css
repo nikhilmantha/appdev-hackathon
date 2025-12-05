@@ -25,25 +25,27 @@ padding-top: 75px;
   background-color: #18A0FB;
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
   display: flex;
-  justify-content: space-between;   /* push content to right */
+  justify-content: space-between;   
   align-items: center;
-  padding: 0 2rem;             /* space from edges */
+  padding: 0 2rem;             
   z-index: 1000;
   box-sizing: border-box;
 }
 
+/* Catalog and Tasks button on the top bar */
 .button-group {
   display: flex;
-  gap: 1rem;           /* spacing between buttons */
+  gap: 1rem;           
   align-items: center;
   min-width: 120px;
   text-align: center;
 
 }
 
+/* Tasks button on top bar */
 .task-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;      
   background-color: white;
   color:black;
   
@@ -54,12 +56,13 @@ padding-top: 75px;
 }
 
 .task-button:hover {
-  background-color: #e6e6e6; /* light gray */
+  background-color: #e6e6e6; 
 }
 
+/* Catalog button on top bar */
 .catalog-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      /* height + horizontal space */
+  padding: 0.8rem 1.2rem;      
   background-color: black;
   color: white;
   font-weight: bold;
@@ -68,8 +71,10 @@ padding-top: 75px;
 }
 
 .catalog-button:hover {
-  background-color: #333;       /* slightly lighter on hover */
+  background-color: #333;       
 }
+
+/* App dev logo on top bar */
 .logo-photo {
     height: 50px;
     width: 50px;

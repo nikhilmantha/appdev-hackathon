@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function Profile() {
-      const navigate = useNavigate();  // ADD THIS LINE
+      const navigate = useNavigate();  
 
   return (
     <div className="profile-page">
+      {/* Top Bar */}
       <div className="top-bar">
               <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="logo-photo" />
              <div className = "button-group">
