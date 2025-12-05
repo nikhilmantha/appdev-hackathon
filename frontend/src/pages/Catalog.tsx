@@ -14,6 +14,14 @@ export default function Catalog() {
         </div>
       </div>
 
+      {/* Back arrow */}
+      <img
+        src="https://static.vecteezy.com/system/resources/thumbnails/000/589/654/small/40_436.jpg"
+        alt="Back"
+        className="back-arrow-button"
+        onClick={() => navigate('/')}
+      />
+
       {/* Catalog Header */}
       <div className="catalog-box">Catalog</div>
 
