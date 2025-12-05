@@ -22,8 +22,8 @@ export default function Landing() {
         <p className="hero-subtitle">subtitle</p>
 
         <div className="hero-buttons">
-            <button className="hero-register">Register</button>
-            <button className="hero-signin">Sign In</button>
+            <button className="hero-register" onClick={() => navigate('/login')}>Register</button>
+            <button className="hero-signin" onClick={() => navigate('/register')}>Sign In</button>
         </div>
     </div>
     </div>
