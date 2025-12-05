@@ -4,12 +4,17 @@ from pathlib import Path
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.auth import router as auth_router
 from app.api.user import router as user_router
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+
+REACT_PORT = os.getenv("REACT_PORT")
 
 app = FastAPI()
 
 origins = [
-    "add local host for react here (individual port)" # will figure out hosting later
+    REACT_PORT # will figure out hosting later
 ]
 
 app.add_middleware(
