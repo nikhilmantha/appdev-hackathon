@@ -1,5 +1,8 @@
 # file to hold endpoints involving a logged in user (goals and profile)
 from fastapi import APIRouter
 
-router = APIRouter(prefix = "/user")
+router = APIRouter(tags = ["user"])
+
+
+
 

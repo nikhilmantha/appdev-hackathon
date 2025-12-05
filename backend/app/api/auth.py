@@ -2,11 +2,9 @@
 from fastapi import APIRouter
 from ..schemas.schemas import Example #shows how to import a schema
 
-router = APIRouter(prefix="/auth", tags = ["auth"])
+router = APIRouter(tags = ["auth"])
 
-# every route in here points to auth/{insert endpoint}
 
-# /auth/register
 @router.get('/register')
 async def register():
     return {"page" : "register"}
