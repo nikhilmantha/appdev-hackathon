@@ -1,0 +1,274 @@
+/* Reset */
+html, body {
+margin: 0;
+padding: 0;
+width: 100%;
+background-color: white;
+overflow-x: hidden;
+}
+
+/* Page wrapper */
+.landing-page {
+display: block;
+position: relative;
+padding-top: 75px;
+}
+
+
+
+/* Top Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: #18A0FB;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;   
+  align-items: center;
+  padding: 0 2rem;             
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* About, register, and sign in button on top bar */
+.button-group {
+  display: flex;
+  gap: 1rem;           
+  align-items: center;
+  min-width: 120px;
+  text-align: center;
+
+}
+
+/* Sign in button on top bar */
+.signin-button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;     
+  background-color: white;
+  color:black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+}
+
+.signin-button:hover {
+  background-color: #e6e6e6; 
+}
+
+/* Register button on top bar */
+.register-button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;     
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #333;       
+}
+
+/* About button on top bar */
+.about-button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;      
+  background-color: #90D5FF;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.about-button:hover {
+  background-color: #78C9FF;       
+}
+
+/* App dev logo on top bar */
+.logo-photo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Title section */
+.hero-section {
+padding-top: calc(75px + 30rem);
+padding-bottom: 2rem;  
+background-color: white; 
+}
+
+.hero-content {
+max-width: 600px;
+margin: 0 auto; 
+text-align: center;
+padding: 2rem;
+}
+
+.hero-subtitle {
+margin-top: -1rem; 
+}
+
+/* Register and sign in buttons below title */
+.hero-buttons {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin-top: 1.5rem;
+}
+
+/* Sign in button below title */
+.hero-signin {
+    color: black;
+    background-color: #D3D3D3;
+    border: 0.75px solid black;
+    cursor: pointer;
+    padding: 0.8rem 1.2rem; 
+
+}
+
+/* Register button below title */
+.hero-register {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    padding: 0.8rem 1.2rem; 
+}
+
+.hero-signin:hover {
+background-color: #BEBEBE; 
+}
+
+.hero-register:hover {
+background-color: #333; 
+}
+
+/* Image section below title section */
+.image-section {
+padding: 2rem 0;
+background-color: #18A0FB;
+width: 100vw;
+max-height: 300px;
+min-height: 250px;
+position: relative;
+left: 50%;
+right: 50%;
+margin-left: -50vw;
+margin-right: -50vw;
+display: flex; 
+align-items: center; 
+}
+
+.images {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+width: 100%;
+border-radius: 8px;
+
+}
+
+.app-image {
+height: 200px;
+width: 200px;
+object-fit: cover;
+border-radius: 8px;
+}
+
+/* Description of app section below image section */
+.description-section{
+  padding: 2rem;
+  background-color: white;
+  width: 100vw;
+  min-height: 250px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.descriptions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.description-row-1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.description-row-2 {
+  display: flex;
+  justify-content: center;
+  gap: 20rem;
+  width: 100%;
+}
+
+.description1, .description2, .description3 {
+  border: 2px solid #D3D3D3;
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  min-height: 200px;
+  box-sizing: border-box;
+  position: relative; 
+}
+
+.info-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+}
+
+/* Footer */
+.footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #18A0FB;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-text {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+}

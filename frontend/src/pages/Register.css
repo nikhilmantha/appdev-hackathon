@@ -1,0 +1,178 @@
+
+
+/* Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  overflow-x: hidden; 
+}
+
+/* Page wrapper */
+.register-page {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: white;
+  position: relative;
+}
+
+/* Top Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: #18A0FB;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;   
+  align-items: center;
+  padding: 0 2rem;             
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+
+/* Top Bar Sign In Button */
+.signin-button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;      
+  background-color: white;
+  color:black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+}
+
+.signin-button:hover {
+  background-color: #e6e6e6; 
+}
+
+/* Top Bar App Dev Logo */
+.logo-photo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Back Arrow */
+.back-arrow-button {
+  position: fixed;         
+  top: 100px;               
+  left: 20px;              
+  height: 60px;            
+  width: 60px;
+  cursor: pointer;
+  z-index: 1001;           
+}
+
+
+/* Login-in block */
+.registration-block {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 80%;
+  max-width: 550px;
+  min-width: 300px;
+  aspect-ratio: 11 / 7; 
+  max-height: 275px;
+
+  background-color: #18A0FB;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  border-radius: 12px;
+
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      
+  gap: 1.5rem;                 
+  color: white;
+
+
+}
+
+/* Input Groups (email, username, password) */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 100%;
+  gap: 0.6rem;             
+}
+
+/* Email, username, and password label */
+.input-group label {
+  font-weight: bold;
+  color: white;
+}
+
+/* Email, username, and password input boxes */
+.input-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Placeholder color for input boxes */
+.input-group input::placeholder {
+  color: #999;
+}
+
+/* Sign in Button on sign-in block (lower on the page) */
+.register-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #0f4ea2; 
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #0c3a7a;
+}
+
+
+/* Register box at top middle of the page, labeling where registration is */
+.register-box {
+  position: fixed;               
+  top: 18%;                      
+  left: 50%;
+  transform: translateX(-50%);   
+
+  width: 25%;
+  max-width: 160px;
+  min-width: 80px;
+  height: 60px;
+
+  background-color: #18A0FB;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: 'Title Hero', sans-serif;
+  text-align: center;
+  color: white;
+  z-index: 1001;                
+
+}
+
