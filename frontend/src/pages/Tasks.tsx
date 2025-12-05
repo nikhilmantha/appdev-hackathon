@@ -1,13 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import "./Tasks.css";
 
-export default function Catalog() {
+export default function Tasks() {
+  const navigate = useNavigate();
   return (
     <div className="tasks-page">
       <div className="top-bar">
               <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="logo-photo" />
              <div className = "button-group">
-              <button className="profile-button">Profile</button>
-              <button className="catalog-button">Catalog</button>
+          <button className="profile-button" onClick={() => navigate('/profile')}>Profile</button>
+          <button className="catalog-button" onClick={() => navigate('/catalog')}>Catalog</button>
         </div> 
       </div>    
 

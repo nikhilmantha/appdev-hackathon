@@ -1,11 +1,13 @@
 import "./Login.css";
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Catalog() {
+          const navigate = useNavigate();  // ADD THIS LINE
   return (
     <div className="login-page">
       <div className="top-bar">
                 <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="logo-photo" />
-              <button className="register-button">Register</button>
+              <button className="register-button" onClick={() => navigate('/register')}>Register</button>
 
       </div>
 

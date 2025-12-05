@@ -1,14 +1,16 @@
 import "./Landing.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function Landing() {
+    const navigate = useNavigate();
   return (
     <div className="landing-page">
       <div className="top-bar">
               <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="logo-photo" />
              <div className = "button-group">
-              <button className="about-button">About</button>
-              <button className="signin-button">Sign In</button>
-              <button className="register-button">Register</button>
+              <button className="about-button" onClick={() => navigate('/landing')}>About</button>
+              <button className="signin-button" onClick={() => navigate('/login')}>Sign In</button>
+              <button className="register-button" onClick={() => navigate('/register')}>Register</button>
         </div> 
       </div>    
 

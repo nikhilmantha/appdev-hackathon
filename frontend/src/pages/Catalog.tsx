@@ -1,13 +1,15 @@
 import "./Catalog.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function Catalog() {
+          const navigate = useNavigate();  // ADD THIS LINE
   return (
     <div className="catalog-page">
       <div className="top-bar">
               <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="logo-photo" />
              <div className = "button-group">
-              <button className="profile-button">Profile</button>
-              <button className="tasks-button">Tasks</button>
+          <button className="profile-button" onClick={() => navigate('/profile')}>Profile</button>
+          <button className="tasks-button" onClick={() => navigate('/tasks')}>Tasks</button>
         </div> 
       </div>    
 
