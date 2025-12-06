@@ -17,7 +17,7 @@ export default function Catalog() {
         src="https://static.vecteezy.com/system/resources/thumbnails/000/589/654/small/40_436.jpg"
         alt="Back"
         className="back-arrow-button"
-        onClick={() => window.history.back()} // optional: go back on click
+        onClick={() => navigate('/')} // optional: go back on click
     />
 
 {/* Login block where users put in their information */}

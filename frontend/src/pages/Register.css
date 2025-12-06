@@ -83,7 +83,7 @@ html, body {
   max-width: 550px;
   min-width: 300px;
   aspect-ratio: 11 / 7; 
-  max-height: 275px;
+  max-height: 400px;
 
   background-color: #18A0FB;
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
