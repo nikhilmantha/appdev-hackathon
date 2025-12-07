@@ -205,25 +205,15 @@ border-radius: 8px;
 
 .descriptions{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   width: 90%;
   max-width: 1200px;
+  flex-wrap: wrap;
 }
 
-.description-row-1 {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.description-row-2 {
-  display: flex;
-  justify-content: center;
-  gap: 20rem;
-  width: 100%;
-}
 
 .description1, .description2, .description3 {
   border: 2px solid #D3D3D3;

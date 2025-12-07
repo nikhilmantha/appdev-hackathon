@@ -40,24 +40,20 @@ export default function Landing() {
 <div className="description-section">
   <h1 className="description-title">App Dev Hackathon</h1>
   <div className="descriptions">
-    <div className="description-row-1">
-      <div className="description1">
-        <div className="info-icon">i</div>
-        <h2 className="app-description">App Description</h2>
-        <p className="app-text">This is what our app does.</p>
-      </div>
+    <div className="description2">
+      <div className="info-icon">i</div>
+      <h2 className="tech-description">Technologies Used</h2>
+      <p className="tech-text">Built with React, TypeScript, Firebase Authentication, MongoDB, FastAPI, and Tailwind CSS for a modern, scalable experience.</p>
     </div>
-    <div className="description-row-2">
-      <div className="description2">
-        <div className="info-icon">i</div>
-        <h2 className="tech-description">Technologies Used</h2>
-        <p className="tech-text">This is what technologies we used.</p>
-      </div>
-      <div className="description3">
-        <div className="info-icon">i</div>
-        <h2 className="team-description">Team Members</h2>
-        <p className="team-text">These are our team members.</p>
-      </div>
+    <div className="description1">
+      <div className="info-icon">i</div>
+      <h2 className="app-description">App Description</h2>
+      <p className="app-text">The app assigns three random daily goals, consisting of small tasks or good habits. Each time a user completes a goal, they receive a 'pack' that can be opened to reveal random trading cards or badges, motivating them to complete their goals every day. When possible, users can also trade these cards with one another.</p>
+    </div>
+    <div className="description3">
+      <div className="info-icon">i</div>
+      <h2 className="team-description">Team Members</h2>
+      <p className="team-text">Evan, Vishnu, Nikhil, Sonaya, Victoria</p>
     </div>
   </div>
 </div>
