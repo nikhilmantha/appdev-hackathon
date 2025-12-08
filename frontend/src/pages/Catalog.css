@@ -127,44 +127,40 @@ padding-top: 75px;
   align-items: center;
 }
 
-.cards-title {
-  margin-top: 4rem;  
-  text-align: center;
-  margin-bottom: 3rem;
-}
+
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 2rem;
-    max-width: 900px; 
-  margin: 0 auto; 
-
 }
 
-.card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9 {
+.card-item {
   border: 2px solid #D3D3D3;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  align-items: center;
   transition: transform 0.2s;
+  height: 350px; /* fixed height */
+  box-sizing: border-box;
 }
 
-.card-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.card-item:hover {
+  transform: translateY(-5px);
 }
 
-.card1-image, .card2-image, .card3-image, .card4-image, .card5-image, .card6-image, .card7-image, .card8-image, .card9-image {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+.card-image {
+  width: 150px;   /* fixed width */
+  height: 150px;  /* fixed height */
+  object-fit: fill; /* stretches the image to fit exactly */
   border-radius: 4px;
   margin-bottom: 1rem;
 }
@@ -172,16 +168,25 @@ padding-top: 75px;
 .card-text-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  justify-content: space-between; /* keeps title on top, rarity at bottom */
 }
 
-.title1, .title2, .title3, .title4, .title5, .title6, .title7, .title8, .title9 {
-  padding: 0;
-  margin: 0 0 0.5rem 0;
-  text-align: left;
+.card-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1rem; /* slightly smaller if needed */
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.card1-text, .card2-text, .card3-text, .card4-text, .card5-text, .card6-text, .card7-text, .card8-text, .card9-text {
-  padding: 0;
-  margin: 0;
-  text-align: left;
+.card-text {
+  color: #555;
+  font-size: 0.8rem; /* smaller so it fits */
+  word-wrap: break-word;
+  overflow: hidden;
+  text-align: center;
 }
