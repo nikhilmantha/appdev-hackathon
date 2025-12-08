@@ -9,6 +9,12 @@ interface Card {
   quantity: number;
 }
 
+interface CardDetails {
+  _id: string;
+  name: string;
+  rarity: string;
+}
+
 interface Goal {
   _id: string;
   user_id: string;
@@ -38,6 +44,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
+  const [cardDetails, setCardDetails] = useState<{ [key: string]: CardDetails }>({});
   const [goals, setGoals] = useState<Goal[]>([]);
   const [goalDetails, setGoalDetails] = useState<{ [key: string]: GoalTemplate }>({});
   const [loading, setLoading] = useState(true);
@@ -60,13 +67,11 @@ export default function Profile() {
         setUser(data.user);
         setCards(data.user_cards || []);
         
-        // Filter only completed goals
         const completedGoals = (data.user_goals || []).filter(
           (g: Goal) => g.status === "completed"
         );
         setGoals(completedGoals);
         
-        // Fetch goal template details for each completed goal
         const details: { [key: string]: GoalTemplate } = {};
         for (const goal of completedGoals) {
           try {
@@ -80,6 +85,20 @@ export default function Profile() {
           }
         }
         setGoalDetails(details);
+        
+        const cardDeets: { [key: string]: CardDetails } = {};
+        for (const card of data.user_cards || []) {
+          try {
+            const response = await fetch(`http://localhost:8000/card/${card.card_id}`);
+            if (response.ok) {
+              const cardData = await response.json();
+              cardDeets[card.card_id] = cardData;
+            }
+          } catch (err) {
+            console.error("Failed to fetch card details:", err);
+          }
+        }
+        setCardDetails(cardDeets);
         
         setLoading(false);
       })
@@ -167,13 +186,17 @@ export default function Profile() {
           {cards.length === 0 ? (
             <p>No cards yet. Complete goals to earn packs!</p>
           ) : (
-            cards.map((card) => (
-              <div key={card._id} className="card-item">
-                <div className="card-image-placeholder"></div>
-                <h4>Card {card.card_id}</h4>
-                <p>Quantity: {card.quantity}</p>
-              </div>
-            ))
+            cards.map((card) => {
+              const detail = cardDetails[card.card_id];
+              return (
+                <div key={card._id} className="card-item">
+                  <div className="card-image-placeholder"></div>
+                  <h4>{detail ? detail.name : 'Loading...'}</h4>
+                  {detail && <p>Rarity: {detail.rarity}</p>}
+                  <p>Quantity: {card.quantity}</p>
+                </div>
+              );
+            })
           )}
         </div>
 

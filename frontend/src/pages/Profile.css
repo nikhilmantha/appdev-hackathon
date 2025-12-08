@@ -72,7 +72,7 @@ html, body {
 /* Profile Content */
 .profile-content {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -157,6 +157,7 @@ html, body {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin: 2rem 0;
+  justify-items: center;
 }
 
 .card-list > p {
@@ -174,6 +175,11 @@ html, body {
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
+  width: 250px; 
+  height: 280px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-image-placeholder {
@@ -192,7 +198,7 @@ html, body {
 
 .card-item p {
   font-size: 0.9rem;
-  color: #666;
+  color: black;
   line-height: 1.4;
   margin: 0;
 }
