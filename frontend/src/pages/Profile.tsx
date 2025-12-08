@@ -13,8 +13,16 @@ interface Goal {
   _id: string;
   user_id: string;
   goal_id: string;
+  status: string;
   assigned_for: string;
-  completed?: boolean;
+  completed_at?: string | null;
+}
+
+interface GoalTemplate {
+  _id: string;
+  name: string;
+  description: string;
+  reward_packs: number;
 }
 
 interface User {
@@ -31,6 +39,7 @@ export default function Profile() {
   const [user, setUser] = useState<User | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
   const [goals, setGoals] = useState<Goal[]>([]);
+  const [goalDetails, setGoalDetails] = useState<{ [key: string]: GoalTemplate }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>("");
 
@@ -41,17 +50,37 @@ export default function Profile() {
       return;
     }
 
-    // Fixed: Changed backticks to parentheses
     fetch(`http://localhost:8000/profile/${userId}`)
       .then((res) => {
         if (!res.ok) throw new Error("User not found");
         return res.json();
       })
-      .then((data) => {
-        console.log("Profile data:", data); // Debug log
+      .then(async (data) => {
+        console.log("Profile data:", data);
         setUser(data.user);
         setCards(data.user_cards || []);
-        setGoals(data.user_goals || []);
+        
+        // Filter only completed goals
+        const completedGoals = (data.user_goals || []).filter(
+          (g: Goal) => g.status === "completed"
+        );
+        setGoals(completedGoals);
+        
+        // Fetch goal template details for each completed goal
+        const details: { [key: string]: GoalTemplate } = {};
+        for (const goal of completedGoals) {
+          try {
+            const response = await fetch(`http://localhost:8000/goals/${goal.goal_id}`);
+            if (response.ok) {
+              const goalData = await response.json();
+              details[goal.goal_id] = goalData;
+            }
+          } catch (err) {
+            console.error("Failed to fetch goal details:", err);
+          }
+        }
+        setGoalDetails(details);
+        
         setLoading(false);
       })
       .catch((err) => {
@@ -117,13 +146,19 @@ export default function Profile() {
           {goals.length === 0 ? (
             <p>No goals completed yet!</p>
           ) : (
-            goals.map((goal) => (
-              <div key={goal._id} className="goal-card">
-                <h4>Goal {goal.goal_id}</h4>
-                <p>Assigned for: {goal.assigned_for}</p>
-                <p>✓ Completed</p>
-              </div>
-            ))
+            goals.map((goal) => {
+              const detail = goalDetails[goal.goal_id];
+              return (
+                <div key={goal._id} className="goal-card">
+                  <h4>{detail ? detail.name : 'Loading...'}</h4>
+                  {detail && detail.description && (
+                    <p className="goal-description">{detail.description}</p>
+                  )}
+                  <p>Assigned for: {goal.assigned_for}</p>
+                  <p>✓ Completed</p>
+                </div>
+              );
+            })
           )}
         </div>
 

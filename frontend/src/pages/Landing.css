@@ -99,7 +99,7 @@ padding-top: 75px;
 
 /* Title section */
 .hero-section {
-padding-top: calc(75px + 30rem);
+padding-top: calc(75px + 20rem);
 padding-bottom: 2rem;  
 background-color: white; 
 }
@@ -226,6 +226,12 @@ border-radius: 8px;
   box-sizing: border-box;
   position: relative; 
 }
+
+.description1 h2, .description2 h2, .description3 h2 {
+  margin-top: 1.5rem;  /* Pushes titles down from the icon */
+  margin-bottom: 1rem;
+}
+
 
 .info-icon {
   position: absolute;
