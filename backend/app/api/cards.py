@@ -114,14 +114,26 @@ async def complete_goal(user_id : str, user_goal_id: str):
         {
             "$inc": {
                 "completed_goals" : 1,
-                "packs_available" : user_goal.get("reward_packs", 1)
+                "packs_available" : 0
             }
         }
     )
 
+# Award pack only if all 3 goals completed today
+    today_str = date.today().isoformat()
+    completed_count = await user_goals_collection.count_documents({
+        "user_id": ObjectId(user_id), 
+        "assigned_for": today_str, 
+        "status": "completed"
+    })
+    
+    if completed_count == 3:
+        await users_collection.update_one(
+            {"_id": ObjectId(user_id)}, 
+            {"$inc": {"packs_available": 1}}
+        )
 
-    return {"message" : "Goal completed, packs awarded"}
-
+    return {"message" : "Goal completed, pack awarded"}
 
 @router.post("/users/{user_id}/packs/open", 
              response_description = "Open a pack associated with a specific user")

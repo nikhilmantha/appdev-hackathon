@@ -56,7 +56,7 @@ async def profile(user_id : str):
     goal_db = [goal async for goal in goals_cursor]
 
     for goal in goal_db:
-        goal["_id"] = str(card["_id"])
+        goal["_id"] = str(goal["_id"])
         goal["user_id"] = str(goal["user_id"])
         goal["goal_id"] = str(goal["goal_id"])
 
