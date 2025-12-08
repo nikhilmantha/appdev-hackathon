@@ -166,7 +166,7 @@ async def open_pack(user_id : str):
              upsert = True
         )
 
-        return { "cards" : 
-                [ {"card_id" : str(card["id"]), "name" : card["name"] , "rarity" : card["rarity"]}  for card in pulled]}
+    return { "cards" : 
+                [ {"card_id" : str(card["_id"]), "name" : card["name"] , "rarity" : card["rarity"]}  for card in pulled]}
                 
 
