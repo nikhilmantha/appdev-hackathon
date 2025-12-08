@@ -1,8 +1,36 @@
 import "./Landing.css";
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 export default function Landing() {
     const navigate = useNavigate();
+    const heroRef = useRef<HTMLDivElement>(null);
+    const descRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const heroElement = heroRef.current;
+        const descElement = descRef.current;
+
+        if (heroElement) observer.observe(heroElement);
+        if (descElement) observer.observe(descElement);
+
+        return () => {
+            if (heroElement) observer.unobserve(heroElement);
+            if (descElement) observer.unobserve(descElement);
+        };
+    }, []);
+
   return (
     <div className="landing-page">
       {/* Top Bar */}
@@ -16,8 +44,8 @@ export default function Landing() {
       </div>    
 
 {/* Title Block */}
-    <div className="hero-section">
-    <div className="hero-content">
+    <div className="hero-section" ref={heroRef}>
+    <div className="hero-content fade-in">
         <h1 className="hero-title">Title</h1>
         <p className="hero-subtitle">subtitle</p>
 
@@ -31,26 +59,26 @@ export default function Landing() {
 {/* Image section */}
     <div className="image-section">
         <div className="images">
-            <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="app-image" />
-            <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="app-image" />
+            <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="app-image slide-in-left" />
+            <img src = "https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" alt="app dev logo" className="app-image slide-in-right" />
     </div>
     </div>
 
 {/* Description of app section */}
-<div className="description-section">
+<div className="description-section" ref={descRef}>
   <h1 className="description-title">App Dev Hackathon</h1>
   <div className="descriptions">
-    <div className="description2">
+    <div className="description2 card-hover">
       <div className="info-icon">i</div>
       <h2 className="tech-description">Technologies Used</h2>
       <p className="tech-text">Built with React, TypeScript, Firebase Authentication, MongoDB, FastAPI, and Tailwind CSS for a modern, scalable experience.</p>
     </div>
-    <div className="description1">
+    <div className="description1 card-hover">
       <div className="info-icon">i</div>
       <h2 className="app-description">App Description</h2>
       <p className="app-text">The app assigns three random daily goals, consisting of small tasks or good habits. Each time a user completes a goal, they receive a 'pack' that can be opened to reveal random trading cards or badges, motivating them to complete their goals every day. When possible, users can also trade these cards with one another.</p>
     </div>
-    <div className="description3">
+    <div className="description3 card-hover">
       <div className="info-icon">i</div>
       <h2 className="team-description">Team Members</h2>
       <p className="team-text">Evan, Vishnu, Nikhil, Sonaya, Victoria</p>
