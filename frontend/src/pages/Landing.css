@@ -46,10 +46,11 @@ padding-top: 75px;
 /* Sign in button on top bar */
 .signin-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;     
+  padding: 1rem 1.8rem;     
   background-color: white;
   color:black;
   font-weight: bold;
+  font-size: 1.1rem;
   border: none;
   cursor: pointer;
 
@@ -62,10 +63,11 @@ padding-top: 75px;
 /* Register button on top bar */
 .register-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;     
+  padding: 1rem 1.8rem;     
   background-color: black;
   color: white;
   font-weight: bold;
+  font-size: 1.1rem;
   border: none;
   cursor: pointer;
 }
@@ -129,8 +131,9 @@ margin-top: 1.5rem;
     background-color: #D3D3D3;
     border: 0.75px solid black;
     cursor: pointer;
-    padding: 0.8rem 1.2rem; 
-
+    padding: 1rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 /* Register button below title */
@@ -138,7 +141,9 @@ margin-top: 1.5rem;
     color: white;
     background-color: black;
     cursor: pointer;
-    padding: 0.8rem 1.2rem; 
+    padding: 1rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .hero-signin:hover {
