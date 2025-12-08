@@ -61,11 +61,13 @@ async def create_tasks(user_id : str):
     
 
     # pick 3 goals (for demo only going to grab first 3)
-    picked_goals =  goal_templates_collection.find().limit(3 - current_count)
+    picked_goals =  goal_templates_collection.find()
     templates = [template async for template in picked_goals]
 
+    goal_set = random.sample(templates, k= 3)
+
     new_user_goals = []
-    for template in templates:
+    for template in goal_set:
         new_user_goals.append({
             "user_id" : ObjectId(user_id),
             "goal_id" : template["_id"],
@@ -149,7 +151,7 @@ async def open_pack(user_id : str):
         raise HTTPException(status_code = status.HTTP_500_INTERNAL_SERVER_ERROR,
                             detail = "No cards in database")
     
-    pulled = random.sample(all_cards, k = 4) # pulls four random cards
+    pulled = random.sample(all_cards, k = 3) # pulls four random cards
 
     # update user, card relationship
     for card in pulled:
