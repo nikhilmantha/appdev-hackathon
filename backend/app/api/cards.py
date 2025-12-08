@@ -61,7 +61,7 @@ async def create_tasks(user_id : str):
     
 
     # pick 3 goals (for demo only going to grab first 3)
-    picked_goals = goal_templates_collection.find().limit(3 - current_count)
+    picked_goals =  goal_templates_collection.find().limit(3 - current_count)
     templates = [template async for template in picked_goals]
 
     new_user_goals = []
@@ -143,7 +143,7 @@ async def open_pack(user_id : str):
     )
 
     # fetch some cards (all for demo)
-    cards_cursor = cards_collection.find()
+    cards_cursor =  cards_collection.find()
     all_cards = [card async for card in cards_cursor]
 
     # no cards in db
@@ -175,7 +175,7 @@ async def open_pack(user_id : str):
 async def get_catalog():
 
     # gets all the cards in the db
-    cards_cursor = cards_collection.find({})
+    cards_cursor =  cards_collection.find({})
     all_cards = [card async for card in cards_cursor]
 
     if not all_cards:
@@ -190,5 +190,55 @@ async def get_catalog():
 
     return all_cards
     
+@router.get("/goals/{goal_id}",
+            response_description = "get the data for a specific goal")
+async def get_goal(goal_id : str):
+
+    goal = await goal_templates_collection.find_one({"_id" : ObjectId(goal_id)})
+
+    if not goal:
+        raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+                            detail = "No Goal with passed ID")
+    
+    goal["_id"] = str(goal["_id"])
+
+    return goal
+
+
+@router.get("/goals_all",
+            response_description = "Get all available Goals")
+async def get_all_goals():
+
+    goal_cursor =  goal_templates_collection.find({})
+
+    all_goals = [goal async for goal in goal_cursor]
+
+
+    if not all_goals:
+        raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+                            detail = "No Goals Found")
+    
+    
+    
+    # change objectIds into strings
+    for goal in all_goals:
+        goal["_id"] = str(goal["_id"])
+    
+    return all_goals
+    
+
+@router.get("/card/{card_id}",
+            response_description = "Get information about a card")
+async def get_card(card_id : str):
+
+    card = await cards_collection.find_one({"_id" : ObjectId(card_id)})
+
+    if not card:
+        raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+                            detail = "No card found with given id")
+    
+    card["_id"] = str(card["_id"])
+
+    return card
 
 

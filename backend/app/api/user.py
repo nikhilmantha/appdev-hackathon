@@ -42,7 +42,7 @@ async def profile(user_id : str):
         raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
                             detail = "No user with that ID exists")
 
-    cards_cursor = user_cards_collection.find({"user_id" : ObjectId(user_id)})
+    cards_cursor = await user_cards_collection.find({"user_id" : ObjectId(user_id)})
     card_db = [card async for card in cards_cursor]
 
     # convert c
@@ -52,7 +52,7 @@ async def profile(user_id : str):
         card["card_id"] = str(card["card_id"])
 
     
-    goals_cursor = user_goals_collection.find({"user_id" : ObjectId(user_id), "assigned_for" : today_str})
+    goals_cursor = await user_goals_collection.find({"user_id" : ObjectId(user_id), "assigned_for" : today_str})
     goal_db = [goal async for goal in goals_cursor]
 
     for goal in goal_db:

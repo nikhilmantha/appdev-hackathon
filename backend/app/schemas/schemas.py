@@ -33,7 +33,7 @@ class UserModel(BaseModel):
     password : str = Field(...)
 
     packs_available: int = Field(default = 0, ge = 0)
-    completed_goals : int = Field(default = 0)
+    completed_goals : int = Field(default = 0, ge = 0)
     goals_available : int = Field(default = 3, ge = 0, le = 3)
 
     model_config = ConfigDict(
