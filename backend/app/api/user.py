@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 from bson import ObjectId
 from fastapi.responses import Response
+from datetime import date, datetime
 load_dotenv
 
 MONGO_URL = os.getenv("MONGO_URL")
@@ -32,25 +33,40 @@ user_cards_collection = db.get_collection("user_cards")
              response_model = dict)
 async def profile(user_id : str):
 
-    user_db = await users_collection.find_one({"_id" : ObjectId(user_id)})
+    today_str = date.today().isoformat()
+
+    user_db = await users_collection.find_one(
+        {"_id" : ObjectId(user_id)})
 
     if not user_db:
         raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
                             detail = "No user with that ID exists")
 
     cards_cursor = user_cards_collection.find({"user_id" : ObjectId(user_id)})
-    user_cards = [card async for card in cards_cursor]
+    card_db = [card async for card in cards_cursor]
+
+    # convert c
+    for card in card_db:
+        card["_id"] = str(card["_id"])
+        card["user_id"] = str(card["user_id"])
+        card["card_id"] = str(card["card_id"])
+
+    
+    goals_cursor = user_goals_collection.find({"user_id" : ObjectId(user_id), "assigned_for" : today_str})
+    goal_db = [goal async for goal in goals_cursor]
+
+    for goal in goal_db:
+        goal["_id"] = str(card["_id"])
+        goal["user_id"] = str(goal["user_id"])
+        goal["goal_id"] = str(goal["goal_id"])
 
     # change ObjectIds into strings
-    for c in user_cards:
-        c["_id"] = str(c["_id"])
-        c["user_id"] = str(c["user_id"])
-        c["card_id"] = str(c["card_id"])
+
     
     # cast the userDB model into the UserModel
     user = UserModel(**user_db)
 
-    return {"user" : user, "user_cards" : user_cards}
+    return {"user" : user, "user_cards" : card_db, "user_goals" : goal_db}
 
 
 
