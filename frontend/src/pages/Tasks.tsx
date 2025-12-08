@@ -129,7 +129,9 @@ const handleCheckboxChange = async (goalId: string) => {
     // Check if all goals are completed using the updated set
     if (newCompletedGoals.size === goals.length) {
       alert("Congratulations! You've completed all your goals and earned packs!");
+      return;
     }
+    alert(data.message);
   } catch (err) {
     console.error("Error completing goal:", err);
     // Revert optimistic update on error
