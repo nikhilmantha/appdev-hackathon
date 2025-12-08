@@ -188,7 +188,7 @@ padding-top: 75px;
 
 /* Title section */
 .hero-section {
-padding-top: calc(75px + 20rem);
+padding-top: calc(200px + 20rem);
 padding-bottom: 2rem;  
 background: linear-gradient(180deg, white 0%, #f0f8ff 100%);
 position: relative;
