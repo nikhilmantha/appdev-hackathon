@@ -46,8 +46,8 @@ export default function Landing() {
 {/* Title Block */}
     <div className="hero-section" ref={heroRef}>
     <div className="hero-content fade-in">
-        <h1 className="hero-title">Title</h1>
-        <p className="hero-subtitle">subtitle</p>
+        <h1 className="hero-title">TerpQuest</h1>
+        <p className="hero-subtitle">Build Healthy Habits Daily</p>
 
         <div className="hero-buttons">
             <button className="hero-register" onClick={() => navigate('/register')}>Register</button>
