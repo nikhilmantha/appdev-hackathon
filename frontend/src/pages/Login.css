@@ -38,10 +38,11 @@ html, body {
 /* Register button on top bar */
 .register-button {
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;      
+  padding: 1.5rem 3.5rem;      
   background-color: black;
   color: white;
   font-weight: bold;
+  font-size: 1.8rem;
   border: none;
   cursor: pointer;
 }
@@ -78,21 +79,19 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 80%;
-  max-width: 550px;
-  min-width: 300px;
-  aspect-ratio: 11 / 7; 
-  max-height: 275px;
+  width: 90%;
+  max-width: 700px;
+  min-width: 400px;
 
   background-color: #18A0FB;
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
   border-radius: 12px;
 
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;      
-  gap: 1.5rem;                 
+  gap: 2.5rem;                 
   color: white;
 
 }
@@ -103,22 +102,23 @@ html, body {
   flex-direction: column;
   align-items: flex-start; 
   width: 100%;
-  gap: 0.6rem;             
+  gap: 1rem;             
 }
 
 /* Password and username labels */
 .input-group label {
   font-weight: bold;
   color: white;
+  font-size: 1.5rem;
 }
 
 /* Password and username input boxes */
 .input-group input {
   width: 100%;
-  padding: 0.8rem;
+  padding: 1.8rem;
   border-radius: 8px;
   border: none;
-  font-size: 1rem;
+  font-size: 1.6rem;
   box-sizing: border-box;
 }
 
@@ -127,16 +127,27 @@ html, body {
   color: #999;
 }
 
+/* Error message */
+.error-message {
+  color: #ff6b6b;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
 /* Sign In Button */
 .sign-in-btn {
   width: 100%;
-  padding: 0.8rem;
+  padding: 1.5rem;
   border-radius: 8px;
   border: none;
   background-color: #0f4ea2;  /* dark blue */
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -152,10 +163,10 @@ html, body {
   left: 50%;
   transform: translateX(-50%);  
 
-  width: 25%;
-  max-width: 160px;
-  min-width: 80px;
-  height: 60px;
+  width: 30%;
+  max-width: 250px;
+  min-width: 150px;
+  height: 80px;
 
   background-color: #18A0FB;
   border-radius: 20px;
@@ -165,7 +176,7 @@ html, body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: 'Title Hero', sans-serif;
   text-align: center;
   color: white;
