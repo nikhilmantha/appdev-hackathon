@@ -15,8 +15,13 @@ REACT_PORT = os.getenv("REACT_PORT")
 app = FastAPI()
 
 origins = [
-    REACT_PORT # will figure out hosting later
+    "http://localhost:5173", 
+    "http://localhost:3000",  
 ]
+
+# Add REACT_PORT if it's set and not already in the list
+if REACT_PORT and REACT_PORT not in origins:
+    origins.append(REACT_PORT)
 
 app.add_middleware(
     CORSMiddleware,

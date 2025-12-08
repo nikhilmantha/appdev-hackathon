@@ -9,7 +9,7 @@ from fastapi.responses import Response
 from datetime import date, datetime
 import random
 
-load_dotenv
+load_dotenv()
 
 MONGO_URL = os.getenv("MONGO_URL")
 

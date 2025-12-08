@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 from bson import ObjectId
 from fastapi.responses import Response
-load_dotenv
+load_dotenv()
 
 MONGO_URL = os.getenv("MONGO_URL")
 
