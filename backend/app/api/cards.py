@@ -124,7 +124,7 @@ async def complete_goal(user_id : str, user_goal_id: str):
 
 
 @router.post("/users/{user_id}/packs/open", 
-             response_description = "Open a pack associated with a specific server")
+             response_description = "Open a pack associated with a specific user")
 async def open_pack(user_id : str):
     user = await users_collection.find_one({"_id" : ObjectId(user_id)})
 
@@ -169,4 +169,26 @@ async def open_pack(user_id : str):
     return { "cards" : 
                 [ {"card_id" : str(card["_id"]), "name" : card["name"] , "rarity" : card["rarity"]}  for card in pulled]}
                 
+
+@router.get("/catalog",
+            response_description = "Returns all cards in the db")
+async def get_catalog():
+
+    # gets all the cards in the db
+    cards_cursor = cards_collection.find({})
+    all_cards = [card async for card in cards_cursor]
+
+    if not all_cards:
+        raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+                            detail = "No catalog of cards in db")
+
+
+    
+
+    for card in all_cards:
+        card["_id"] = str(card["_id"])
+
+    return all_cards
+    
+
 
