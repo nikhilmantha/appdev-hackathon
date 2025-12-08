@@ -33,7 +33,7 @@ export default function Profile() {
   const [goals, setGoals] = useState<Goal[]>([]);
   
 useEffect(() => {
-  // MOCK DATA FOR TESTING - replace this whole useEffect later
+  // MOCK DATA FOR TESTING 
   setUser({
     _id: "test123",
     username: "testuser",
@@ -92,10 +92,9 @@ const goalsPerRow = 3;
 const cardRows = Math.ceil(cards.length / cardsPerRow);
 const goalRows = Math.ceil(goals.length / goalsPerRow);
 
-// Calculate dynamic padding based on total rows
 const basePadding = 25;
-const paddingPerGoalRow = 8; // Adjust based on goal card height
-const paddingPerCardRow = 15; // Adjust based on card height (cards are taller)
+const paddingPerGoalRow = 8; 
+const paddingPerCardRow = 15; 
 
 const dynamicPadding = basePadding + (goalRows * paddingPerGoalRow) + (cardRows * paddingPerCardRow);
 
