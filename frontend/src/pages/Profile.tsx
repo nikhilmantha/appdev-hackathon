@@ -40,6 +40,14 @@ interface User {
   goals_available: number;
 }
 
+const getCardImage = (cardName: string) => {
+  try {
+    return `/src/assets/cards/${cardName}.png`;
+  } catch {
+    return ''; 
+  }
+};
+
 export default function Profile() {
   const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
@@ -49,6 +57,7 @@ export default function Profile() {
   const [goalDetails, setGoalDetails] = useState<{ [key: string]: GoalTemplate }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>("");
+  const [openingPack, setOpeningPack] = useState(false);
 
   useEffect(() => {
     const userId = localStorage.getItem("user_id");
@@ -67,11 +76,13 @@ export default function Profile() {
         setUser(data.user);
         setCards(data.user_cards || []);
         
+        // Filter only completed goals
         const completedGoals = (data.user_goals || []).filter(
           (g: Goal) => g.status === "completed"
         );
         setGoals(completedGoals);
         
+        // Fetch goal template details for each completed goal
         const details: { [key: string]: GoalTemplate } = {};
         for (const goal of completedGoals) {
           try {
@@ -86,6 +97,7 @@ export default function Profile() {
         }
         setGoalDetails(details);
         
+        // Fetch card details for each card
         const cardDeets: { [key: string]: CardDetails } = {};
         for (const card of data.user_cards || []) {
           try {
@@ -108,6 +120,31 @@ export default function Profile() {
         setLoading(false);
       });
   }, [navigate]);
+
+  const handleOpenPack = async () => {
+    const userId = localStorage.getItem("user_id");
+    if (!userId) return;
+
+    setOpeningPack(true);
+    try {
+      const response = await fetch(`http://localhost:8000/users/${userId}/packs/open`, {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || "Failed to open pack");
+      }
+
+      
+      window.location.reload();
+    } catch (err: any) {
+      console.error("Error opening pack:", err);
+      alert(err.message || "Failed to open pack");
+    } finally {
+      setOpeningPack(false);
+    }
+  };
 
   if (loading) {
     return <p>Loading profile...</p>;
@@ -158,6 +195,16 @@ export default function Profile() {
           <h2>@{user.username}</h2>
           <p>Packs Available: {user.packs_available}</p>
           <p>Completed Goals: {user.completed_goals}</p>
+          
+          {user.packs_available > 0 && (
+            <button 
+              className="open-pack-button" 
+              onClick={handleOpenPack}
+              disabled={openingPack}
+            >
+              {openingPack ? "Opening..." : "Open Pack"}
+            </button>
+          )}
         </div>
 
         <h3 className="section-header">Completed Goals</h3>
@@ -190,7 +237,14 @@ export default function Profile() {
               const detail = cardDetails[card.card_id];
               return (
                 <div key={card._id} className="card-item">
-                  <div className="card-image-placeholder"></div>
+                  <img 
+                    src={detail?.name ? getCardImage(detail.name) : ''} 
+                    alt={detail?.name || 'Card'} 
+                    className="card-image"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
                   <h4>{detail ? detail.name : 'Loading...'}</h4>
                   {detail && <p>Rarity: {detail.rarity}</p>}
                   <p>Quantity: {card.quantity}</p>
