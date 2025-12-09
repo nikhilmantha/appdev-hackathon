@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import "../index.css";
+import "./Tasks.css";
 
 interface Goal {
   _id: string;
@@ -27,7 +27,21 @@ export default function Tasks() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [completedGoals, setCompletedGoals] = useState<Set<string>>(new Set());
+  const [userName, setUserName] = useState("User");
   const fetchingRef = useRef(false); // Add ref to prevent duplicate fetches
+
+useEffect(() => {
+  const userId = localStorage.getItem("user_id");
+  if (userId) {
+    fetch(`http://localhost:8000/profile/${userId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUserName(data.user.username || "User");
+      })
+      .catch((err) => console.error("Failed to fetch user:", err));
+  }
+}, []);
+
 
 useEffect(() => {
   // Prevent duplicate fetches
@@ -115,7 +129,9 @@ const handleCheckboxChange = async (goalId: string) => {
     // Check if all goals are completed using the updated set
     if (newCompletedGoals.size === goals.length) {
       alert("Congratulations! You've completed all your goals and earned packs!");
+      return;
     }
+    alert(data.message);
   } catch (err) {
     console.error("Error completing goal:", err);
     // Revert optimistic update on error
@@ -156,7 +172,7 @@ const handleCheckboxChange = async (goalId: string) => {
 
       {/* Tasks section where title, goal header, and goals are */}
       <div className="tasks-section">
-        <h1 className="tasks-title">Welcome User, Here are your goals for the day</h1>
+<h1 className="tasks-title">Welcome {userName}, Here are your goals for the day</h1>
         <div className="goals-container">
           <h2 className="goals-heading">
             Complete All Your Goals and You'll Get a New Card!

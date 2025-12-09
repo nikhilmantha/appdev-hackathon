@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import "../index.css";
+import "./Profile.css";
 
 interface Card {
   _id: string;
   user_id: string;
   card_id: string;
   quantity: number;
+}
+
+interface CardDetails {
+  _id: string;
+  name: string;
+  rarity: string;
 }
 
 interface Goal {
@@ -34,14 +40,24 @@ interface User {
   goals_available: number;
 }
 
+const getCardImage = (cardName: string) => {
+  try {
+    return `/src/assets/cards/${cardName}.png`;
+  } catch {
+    return ''; 
+  }
+};
+
 export default function Profile() {
   const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
+  const [cardDetails, setCardDetails] = useState<{ [key: string]: CardDetails }>({});
   const [goals, setGoals] = useState<Goal[]>([]);
   const [goalDetails, setGoalDetails] = useState<{ [key: string]: GoalTemplate }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>("");
+  const [openingPack, setOpeningPack] = useState(false);
 
   useEffect(() => {
     const userId = localStorage.getItem("user_id");
@@ -81,6 +97,21 @@ export default function Profile() {
         }
         setGoalDetails(details);
         
+        // Fetch card details for each card
+        const cardDeets: { [key: string]: CardDetails } = {};
+        for (const card of data.user_cards || []) {
+          try {
+            const response = await fetch(`http://localhost:8000/card/${card.card_id}`);
+            if (response.ok) {
+              const cardData = await response.json();
+              cardDeets[card.card_id] = cardData;
+            }
+          } catch (err) {
+            console.error("Failed to fetch card details:", err);
+          }
+        }
+        setCardDetails(cardDeets);
+        
         setLoading(false);
       })
       .catch((err) => {
@@ -89,6 +120,31 @@ export default function Profile() {
         setLoading(false);
       });
   }, [navigate]);
+
+  const handleOpenPack = async () => {
+    const userId = localStorage.getItem("user_id");
+    if (!userId) return;
+
+    setOpeningPack(true);
+    try {
+      const response = await fetch(`http://localhost:8000/users/${userId}/packs/open`, {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || "Failed to open pack");
+      }
+
+      
+      window.location.reload();
+    } catch (err: any) {
+      console.error("Error opening pack:", err);
+      alert(err.message || "Failed to open pack");
+    } finally {
+      setOpeningPack(false);
+    }
+  };
 
   if (loading) {
     return <p>Loading profile...</p>;
@@ -139,6 +195,16 @@ export default function Profile() {
           <h2>@{user.username}</h2>
           <p>Packs Available: {user.packs_available}</p>
           <p>Completed Goals: {user.completed_goals}</p>
+          
+          {user.packs_available > 0 && (
+            <button 
+              className="open-pack-button" 
+              onClick={handleOpenPack}
+              disabled={openingPack}
+            >
+              {openingPack ? "Opening..." : "Open Pack"}
+            </button>
+          )}
         </div>
 
         <h3 className="section-header">Completed Goals</h3>
@@ -167,13 +233,24 @@ export default function Profile() {
           {cards.length === 0 ? (
             <p>No cards yet. Complete goals to earn packs!</p>
           ) : (
-            cards.map((card) => (
-              <div key={card._id} className="card-item">
-                <div className="card-image-placeholder"></div>
-                <h4>Card {card.card_id}</h4>
-                <p>Quantity: {card.quantity}</p>
-              </div>
-            ))
+            cards.map((card) => {
+              const detail = cardDetails[card.card_id];
+              return (
+                <div key={card._id} className="card-item">
+                  <img 
+                    src={detail?.name ? getCardImage(detail.name) : ''} 
+                    alt={detail?.name || 'Card'} 
+                    className="card-image"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <h4>{detail ? detail.name : 'Loading...'}</h4>
+                  {detail && <p>Rarity: {detail.rarity}</p>}
+                  <p>Quantity: {card.quantity}</p>
+                </div>
+              );
+            })
           )}
         </div>
 
