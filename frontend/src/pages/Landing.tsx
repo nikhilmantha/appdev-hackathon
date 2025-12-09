@@ -105,7 +105,7 @@ export default function Landing() {
 
           <GlowCard delay={0.3}>
             <p className="text-2xl font-bold mb-4">TerpQuest</p>
-            <img src="https://via.placeholder.com/200" alt="Feature Two" className="w-full h-40 object-cover rounded-lg mb-4" />
+            <img src="../src/assets/landing.png" alt="Feature Two" className="w-full h-70 object-contain rounded-lg mb-4" />
             <p className="text-gray-300 font-semibold">Complete daily self-improvement quests to earn Card Packs, then open those packs to collect unique Testudo cards. Level up your collection while leveling up yourself!</p>
           </GlowCard>
 
