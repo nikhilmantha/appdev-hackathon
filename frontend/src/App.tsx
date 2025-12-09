@@ -12,9 +12,8 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/landing" element={<Landing />} />
+        <Route path="/signin" element={<Login key="login"/>} />
+        <Route path="/register" element={<Register key="register" />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/profile" element={<Profile />} />
