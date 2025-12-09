@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import "./Profile.css";
+import "../index.css";
 
 interface Card {
   _id: string;

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import "./Tasks.css";
+import "../index.css";
 
 interface Goal {
   _id: string;
