@@ -126,10 +126,7 @@ export default function Profile() {
     );
   }
 
-  // Calculate current streak (dummy stat for now - you can implement actual logic later)
   const currentStreak = Math.min(user.completed_goals, 7);
-  
-  // Calculate total packs opened (completed goals = packs earned and potentially opened)
   const totalPacksOpened = Math.max(0, user.completed_goals - user.packs_available);
 
   return (
