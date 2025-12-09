@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Silk from "../components/Silk";
 import { motion } from "motion/react";
 import TiltedCard from "../components/TiltedCard";
-import { GlowCard } from "../components/GlowCard";
+import GlowCard  from "../components/GlowCard";
 
 export default function Landing() {
     const navigate = useNavigate();
@@ -18,12 +18,12 @@ export default function Landing() {
           initial={{y: -100, opacity: 0}}
           animate={{y: 0, opacity: 1}} 
           transition={{duration: 0.7, type:"spring"}}
-          className="flex justify-between items-center z-10 fixed left-1/2 transform -translate-x-1/2 w-[80dvw] p-2 box-border top-2 rounded-full bg-white/10 border shadow-md border-white/15 backdrop-blur-sm">
+          className="flex justify-between items-center z-10 fixed left-1/2 transform -translate-x-1/2 w-[80dvw] p-2 box-border top-2 rounded-full bg-gray-700/10 border shadow-md border-white/15 backdrop-blur-sm">
           <div className="flex items-center">
-            <img className="h-15 ml-5 mr-3 transition-all duration-200 hover:shadow-lg/20 hover:-translate-y-0.5 active:translate-y-0" 
+            <img className="h-13 ml-5 mr-3 transition-all duration-200 hover:shadow-lg/20 hover:-translate-y-0.5 active:translate-y-0" 
                  src="https://www.cs.umd.edu/sites/default/files/images/article/2024/logo_0.png" 
                  alt="app dev logo" />
-            <h1 className="text-4xl font-extrabold">TerpQuest</h1>
+            <h1 className="text-3xl font-extrabold">TerpQuest</h1>
           </div>
           <button className="text-white text-lg font-bold bg-white/0 p-3 rounded-2xl me-4 w-30 border border-white/10 transition-all duration-200 hover:shadow-lg/20 hover:-translate-y-0.5 hover:bg-white/5 active:translate-y-0" 
                   onClick={() => navigate("/signin")}

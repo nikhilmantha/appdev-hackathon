@@ -1,8 +1,8 @@
 import "../index.css";
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { GlowCard } from '../components/GlowCard';
+import GlowCard from '../components/GlowCard';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -10,6 +10,14 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      const userId = localStorage.getItem("user_id");
+      if (userId) {
+        navigate('/tasks');
+        return;
+      }
+  }, [navigate]);
 
   const handleLogin = async () => {
     if (!email || !password) {

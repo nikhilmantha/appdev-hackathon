@@ -7,7 +7,7 @@ interface GlowCardProps {
   className?: string;
 }
 
-export const GlowCard = ({ children, delay = 0, className = "" }: GlowCardProps) => (
+const GlowCard = ({ children, delay = 0, className = "" }: GlowCardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export const GlowCard = ({ children, delay = 0, className = "" }: GlowCardProps)
     <div 
       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
       style={{
-        background: 'radial-gradient(500px at var(--x, 50%) var(--y, 50%), rgba(0, 145, 255, 0.3), transparent 80%)',
+        background: 'radial-gradient(450px at var(--x, 50%) var(--y, 50%), rgba(0, 145, 255, 0.3), transparent 80%)',
       }} 
     />
     <div className="relative z-10">
@@ -30,3 +30,5 @@ export const GlowCard = ({ children, delay = 0, className = "" }: GlowCardProps)
     </div>
   </motion.div>
 );
+
+export default GlowCard;
