@@ -149,7 +149,7 @@ async def open_pack(user_id : str):
         raise HTTPException(status_code = status.HTTP_500_INTERNAL_SERVER_ERROR,
                             detail = "No cards in database")
     
-    pulled = random.sample(all_cards, k = 4) # pulls four random cards
+    pulled = random.sample(all_cards, k = 5) # pulls four random cards
 
     # update user, card relationship
     for card in pulled:

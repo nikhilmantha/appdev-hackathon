@@ -318,7 +318,7 @@ export default function Tasks() {
           <div className="p-8 rounded-3xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/50 backdrop-blur-sm shadow-2xl">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <span className="text-4xl">⚔️</span>
+
                 <h2 className="text-4xl font-extrabold">Daily Quests</h2>
               </div>
               
@@ -473,10 +473,6 @@ export default function Tasks() {
         >
           <div className="sticky top-24 p-8 rounded-3xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/50 backdrop-blur-sm shadow-2xl">
             <div className="text-center">
-              <div className="mb-6">
-                <span className="text-6xl">🎁</span>
-              </div>
-              
               <h3 className="text-3xl font-extrabold mb-4">Card Packs</h3>
               
               <div className="mb-6 p-6 rounded-2xl bg-blue-500/10 border border-blue-500/30">
@@ -500,7 +496,7 @@ export default function Tasks() {
                       Opening...
                     </span>
                   ) : (
-                    '🎁 Open Pack'
+                    'Open Pack'
                   )}
                 </motion.button>
               ) : (
